@@ -1,1 +1,3 @@
-@import 'variables/global';
+@import 'libs/global';
+@import 'contents/menu';
+@import 'contents/contact';

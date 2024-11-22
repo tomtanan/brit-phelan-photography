@@ -1,7 +1,9 @@
-import about from '../modules/menu.js';
+import contact from '../modules/menu.js';
+import menu from '../modules/menu.js';
 
 // Mapping of data-module values to imported modules
 const modulesMap = {
+  'contact': contact,
   'menu': menu
 };
 
