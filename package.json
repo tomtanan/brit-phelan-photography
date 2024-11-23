@@ -19,6 +19,6 @@
     "vite": "^5.4.9"
   },
   "dependencies": {
-    "select-dom": "^9.0.0"
+    "select-dom": "^9.2.0"
   }
 }

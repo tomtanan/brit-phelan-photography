@@ -1,3 +1,44 @@
+.featured-item {
+  opacity: 0;
+  pointer-events: none;  
+}
+.featured-item.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.gallery-tab {
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  position: relative;
+  transition: padding 0.2s ease;
+}
+.gallery-tab::before {
+  background-color: var(--white);
+  content: '';
+  display: block;
+  height: 1px;
+  inset: calc(50% - 2px) auto auto 0;
+  position: absolute;;
+  transition: width 0.2s ease;
+  width: 0;
+}
+.gallery-text {
+  transition: opacity 0.2s ease;
+}
+.gallery-tab.active {
+  padding-left: 30px;
+}
+.gallery-tab.active::before {
+  width: 20px;
+}
+.gallery-tab.active .gallery-text {
+  opacity: 1;
+}
+.no-touch .gallery-tab:hover .gallery-text {
+  opacity: 1;
+}
+
 /* Layout fix for mobile landscape */
 @media (min-width: 480px) and (max-width: 767px) and (max-height: 580px) {
   .featured-item {

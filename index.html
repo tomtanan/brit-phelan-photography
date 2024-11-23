@@ -14,7 +14,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <link
-      href="https://cdn.prod.website-files.com/673d0d29c4146cc69a8002b9/css/brit-phelan-photography.webflow.d2aa232f6.css"
+      href="https://cdn.prod.website-files.com/673d0d29c4146cc69a8002b9/css/brit-phelan-photography.webflow.6f3f9decd.css"
       rel="stylesheet"
       type="text/css" />
     <script type="text/javascript">
@@ -35,7 +35,7 @@
       href="https://cdn.prod.website-files.com/img/webclip.png"
       rel="apple-touch-icon" />
   </head>
-  <body class="body" cz-shortcut-listen="true">
+  <body class="body no-touch" cz-shortcut-listen="true">
     <div
       data-animation="over-right"
       class="navbar w-nav"
@@ -107,10 +107,13 @@
       </div>
       <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
     </div>
-    <div class="main">
+    <div data-module="explorer" class="main">
       <div class="featured-list-wrapper w-dyn-list">
         <div role="list" class="featured-list w-dyn-items">
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="family"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="4" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -147,7 +150,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="portraits"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="1" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -184,7 +190,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="editorial"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="4" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -221,7 +230,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="friends"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="3" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -258,7 +270,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="sports"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="2" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -295,7 +310,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="adventure"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="1" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -332,7 +350,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="fashion"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="4" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -369,7 +390,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="real-life"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="3" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -406,7 +430,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="intimate"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="2" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -444,7 +471,10 @@
               </div>
             </div>
           </div>
-          <div role="listitem" class="featured-item w-dyn-item">
+          <div
+            data-tab="girlhood"
+            role="listitem"
+            class="featured-item js-explorer-content w-dyn-item">
             <div data-layout="1" class="featured-wrapper">
               <div class="featured-container container-1">
                 <img
@@ -485,52 +515,82 @@
       </div>
       <div class="galleries-list-wrapper w-dyn-list">
         <div role="list" class="galleries-list w-dyn-items">
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="family"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Family</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="portraits"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Portraits</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="editorial"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Editorial</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="friends"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Friends</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="sports"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Sports</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="adventure"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Adventure</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="fashion"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Fashion</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="real-life"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Real Life</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="intimate"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Intimate</div></a
             >
           </div>
-          <div role="listitem" class="galleries-tab w-dyn-item">
+          <div
+            data-content="girlhood"
+            role="listitem"
+            class="gallery-tab js-explorer-tab w-dyn-item">
             <a href="#" class="gallery-link w-inline-block"
               ><div class="gallery-text">Girlhood</div></a
             >

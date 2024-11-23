@@ -1,10 +1,10 @@
-import contact from '../modules/menu.js';
-import menu from '../modules/menu.js';
+import contact from '../modules/contact.js';
+import explorer from '../modules/explorer.js';
 
 // Mapping of data-module values to imported modules
 const modulesMap = {
   'contact': contact,
-  'menu': menu
+  'explorer': explorer
 };
 
 // Automatically initialize sections based on the data-module attribute

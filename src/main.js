@@ -1,4 +1,5 @@
 import 'scripts/init';
 import 'styles/main.css';
+import { isTouchDevice, removeClass } from 'utils/helpers';
 
-console.log('test');
+if (isTouchDevice()) removeClass($('body'), 'no-touch');
