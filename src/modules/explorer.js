@@ -1,7 +1,7 @@
 import { $, $$ } from 'select-dom';
 import { on, addClass, removeClass } from 'utils/helpers';
 
-export default function explorer(el) {
+const explorer = (el) => {
   const tabs = $$('.js-explorer-tab', el);
   const contents = $$('.js-explorer-content', el);
 
@@ -30,3 +30,5 @@ export default function explorer(el) {
 
   initExplorer();
 }
+
+export default explorer;

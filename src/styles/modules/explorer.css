@@ -27,7 +27,7 @@
   transition: opacity 0.2s ease;
 }
 .gallery-tab.active {
-  padding-left: 30px;
+  padding-left: 25px;
 }
 .gallery-tab.active::before {
   width: 20px;

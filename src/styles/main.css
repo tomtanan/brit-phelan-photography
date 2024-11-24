@@ -1,3 +1,4 @@
 @import 'libs/global';
-@import 'contents/explorer';
-@import 'contents/contact';
+@import 'styles/modules/contact';
+@import 'styles/modules/explorer';
+@import 'styles/modules/image-flow';

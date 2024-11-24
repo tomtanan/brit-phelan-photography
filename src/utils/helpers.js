@@ -34,14 +34,10 @@ export const removeClass = (el, ...classNames) => {
   });
 };
 
-/**
- * Attaches an event listener to a specified DOM element.
- * Supports optional event listener options like { once: true }.
- * @param {Element} element - The DOM element to attach the event listener to.
- * @param {string} event - The event to listen for (e.g., 'click', 'mouseover').
- * @param {Function} handler - The function to run when the event occurs.
- * @param {Object} [options] - Optional event listener options (e.g., { once: true }).
- */
 export const on = (element, event, handler, options = {}) => {
   element.addEventListener(event, handler, options);
+};
+
+export const off = (element, event, handler) => {
+  element.removeEventListener(event, handler);
 };

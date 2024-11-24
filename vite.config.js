@@ -11,6 +11,7 @@ export default defineConfig({
       scripts: resolve(__dirname, 'src/scripts'),
       utils: resolve(__dirname, 'src/utils'),
     },
+    extensions: ['.js', '.ts', '.css'],
   },
   server: {
     open: true,
