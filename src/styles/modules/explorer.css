@@ -1,10 +1,20 @@
-.featured-item {
-  opacity: 0;
-  pointer-events: none;  
+.featured-content {
+  pointer-events: none;
+  z-index: 1;
 }
-.featured-item.active {
-  opacity: 1;
+.featured-content.active {
   pointer-events: auto;
+  z-index: 2;
+}
+.featured-content.active .featured-item {
+  transform: translateX(0);
+  opacity: 1;
+}
+.featured-background {
+  display: none;
+}
+.featured-item {
+  transform: translateX(-100vw);
 }
 .gallery-tab {
   align-items: center;
@@ -38,15 +48,26 @@
 .no-touch .gallery-tab:hover .gallery-text {
   opacity: 1;
 }
+.galleries-control {
+  cursor: default;
+  transition: opacity 0.2s ease;
+}
+.galleries-control.active {
+  cursor: pointer;
+  opacity: 1;
+}
+.no-touch .galleries-control.active:hover {
+  opacity: 0.5;
+}
 
 /* Layout fix for mobile landscape */
 @media (min-width: 480px) and (max-width: 767px) and (max-height: 580px) {
-  .featured-item {
+  .featured-content {
     padding-left: 210px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) and (max-height: 580px) {
-  .featured-item {
+  .featured-content {
     padding-left: 280px;
   }
 }
@@ -56,32 +77,32 @@
     height: 100%;
     width: 100%;
   }
-  .featured-container.container-1 {
+  .featured-item.item-1 {
     height: 100%;
     inset: auto;
     max-height: 100%;
     max-width: 100%;
     width: auto;
   }
-  .featured-container.container-2,
-  .featured-container.container-3 {
+  .featured-item.item-2,
+  .featured-item.item-3 {
     display: none;
   }
 }
 
 /* Layout fix for tablet */
 @media (min-width: 992px) and (max-width: 1279px) and (min-height: 1366px) {
-  .featured-item {
+  .featured-content {
     padding-left: 210px;
   }
   .featured-wrapper {
     aspect-ratio: 420 / 500;
     max-height: 80vw;
   }
-  .featured-container.container-2 {
+  .featured-item.item-2 {
     width: 40%;
   }
-  .featured-container.container-3 {
+  .featured-item.item-3 {
     right: 35%;
     width: 30%;
   }
@@ -90,7 +111,7 @@
 /* Layout fix for iOS */
 @supports (-webkit-touch-callout: none) {
   .featured-list-wrapper, 
-  .featured-item {
+  .featured-content {
     height: 100dvh;
   }
   @media (min-width: 480px) and (max-width: 991px) {
