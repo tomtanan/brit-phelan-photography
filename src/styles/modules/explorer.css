@@ -1,3 +1,6 @@
+.explorer-background {
+  transition: background-color 1s ease;
+}
 .featured-content {
   pointer-events: none;
   z-index: 1;
@@ -9,9 +12,6 @@
 .featured-content.active .featured-item {
   transform: translateX(0);
   opacity: 1;
-}
-.featured-background {
-  display: none;
 }
 .featured-item {
   transform: translateX(-100vw);

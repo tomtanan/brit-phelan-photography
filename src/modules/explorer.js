@@ -8,9 +8,12 @@ let isAnimating = false;
 
 const explorer = (el) => {
   const tabs = $$('.js-explorer-tab', el);
-  const contents = $$('.js-explorer-content', el);
+  const contents = $$('.js-explorer-featured', el);
+  const background = $('.js-explorer-background', el);
   const prev = $('.js-explorer-prev', el);
   const next = $('.js-explorer-next', el);
+  const wheel = $('.js-explorer-wheel', el);
+  const paths = $$('.js-wheel-path', wheel);
 
   const animate = (prevContent, nextContent) => {
     // Lock parallax during animations
@@ -50,19 +53,20 @@ const explorer = (el) => {
     nextItems.forEach((item) => {
       const speed = parseFloat(item.getAttribute('data-speed')) || 1;
       timeline.fromTo(item, { 
-        x: '100vw', 
+        x: '100vw',
         opacity: 0 
       }, {
         x: '0vw',
         opacity: 1,
         duration: speed,
         ease: 'power2.out',
-      }, 0.6);
+      }, 0.7);
     });
   };
 
   const selectGallery = (tab, content, init = false) => {
-    const curr = $('.js-explorer-content.active', el);
+    const curr = $('.js-explorer-featured.active', el);
+    const color = $('.js-explorer-color', content).style.backgroundColor;
 
     if (!init) animate(curr, content);
 
@@ -72,9 +76,12 @@ const explorer = (el) => {
     removeClass(contents, 'active');
     addClass(content, 'active');
 
+    background.style.backgroundColor = color;
+
     const index = tabs.findIndex((tab) => tab.classList.contains('active'));
 
     updateGalleryNav(index);
+    updateWheel(tab);
   };
   
   const updateGalleryNav = (index) => {
@@ -91,6 +98,14 @@ const explorer = (el) => {
     }
   }
 
+  const updateWheel = (tab) => {
+    const word = tab.getAttribute('data-content').toUpperCase();
+
+    paths.forEach((item) => {
+      item.textContent = word;
+    });
+  }
+
   const navigateGallery = (step = 1) => {
     const index = tabs.findIndex((tab) => tab.classList.contains('active'));
     const newIndex = index + step;
@@ -103,12 +118,13 @@ const explorer = (el) => {
   const initExplorer = () => {
     selectGallery(tabs[0], contents[0], true);
     addClass(next, 'active');
+
   };
 
   tabs.forEach((item) => {
     on(item, 'click', () => {
       const slug = item.getAttribute('data-content');
-      const content = $(`.js-explorer-content[data-tab="${slug}"]`, el);
+      const content = $(`.js-explorer-featured[data-tab="${slug}"]`, el);
 
       if (content.classList.contains('active') || isAnimating) return;
 
