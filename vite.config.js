@@ -2,16 +2,17 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  root: resolve(__dirname, 'src'), // Set src as the root
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
+      '@': resolve(__dirname, 'src'), // Alias for src directory
       styles: resolve(__dirname, 'src/styles'),
       components: resolve(__dirname, 'src/components'),
       modules: resolve(__dirname, 'src/modules'),
       scripts: resolve(__dirname, 'src/scripts'),
       utils: resolve(__dirname, 'src/utils'),
     },
-    extensions: ['.js', '.ts', '.css'],
+    extensions: ['.js', '.ts', '.css'], // Optional extensions
   },
   server: {
     open: true,
@@ -19,8 +20,9 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      output: {
-        manualChunks: undefined,
+      input: {
+        main: resolve(__dirname, 'src/index.html'),
+        photos: resolve(__dirname, 'src/photos.html'),
       },
     },
   },

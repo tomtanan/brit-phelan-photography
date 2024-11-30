@@ -2,13 +2,15 @@ import contact from '../modules/contact.js';
 import explorer from '../modules/explorer.js';
 import imageFlow from '../modules/image-flow.js';
 import explorerWheel from '../modules/explorer-wheel.js';
+import gallery from '../modules/gallery.js';
 
 // Mapping of data-module values to imported modules
 const modulesMap = {
   'contact': contact,
   'explorer': explorer,
   'image-flow': imageFlow,
-  'explorer-wheel': explorerWheel
+  'explorer-wheel': explorerWheel,
+  'gallery': gallery
 };
 
 // Automatically initialize sections based on the data-module attribute
