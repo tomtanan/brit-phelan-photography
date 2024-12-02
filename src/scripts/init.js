@@ -3,6 +3,7 @@ import explorer from '../modules/explorer.js';
 import imageFlow from '../modules/image-flow.js';
 import explorerWheel from '../modules/explorer-wheel.js';
 import gallery from '../modules/gallery.js';
+import slideshow from '../modules/slideshow.js';
 
 // Mapping of data-module values to imported modules
 const modulesMap = {
@@ -10,7 +11,8 @@ const modulesMap = {
   'explorer': explorer,
   'image-flow': imageFlow,
   'explorer-wheel': explorerWheel,
-  'gallery': gallery
+  'gallery': gallery,
+  'slideshow': slideshow
 };
 
 // Automatically initialize sections based on the data-module attribute

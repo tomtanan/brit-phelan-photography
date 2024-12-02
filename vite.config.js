@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  root: resolve(__dirname, 'src'), // Set src as the root
+  root: resolve(__dirname, 'src'), // Set src as the root directory
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'), // Alias for src directory
@@ -19,6 +19,7 @@ export default defineConfig({
     port: 3000,
   },
   build: {
+    outDir: resolve(__dirname, 'dist'), // Ensure dist is outside src
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
