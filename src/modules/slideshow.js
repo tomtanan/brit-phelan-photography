@@ -62,11 +62,13 @@ const slideshow = (el) => {
 
     timeline
       .fromTo(currImage, { 
-        y: '100%',
+        scale: 0.8,
+        opacity: 0,
       }, {
-        y: '0',
-        duration: 1,
-        delay: 0.5,
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.4,
         ease: 'power2.out',
       })
       .fromTo(prev, { 
