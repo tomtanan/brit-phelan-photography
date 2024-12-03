@@ -1,3 +1,9 @@
+.no-touch .gallery-header-link {
+  transition: opacity 0.2s ease;
+}
+.no-touch .gallery-header-link:hover {
+  opacity: 0.5;
+}
 .gallery-modal {
   transition: opacity 0.4s ease;
   pointer-events: none;
