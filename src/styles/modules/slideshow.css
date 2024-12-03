@@ -1,3 +1,21 @@
-.gallery-modal-slideshow {
-  
+.gallery-modal.active .slideshow-featured-item.active {
+  pointer-events: auto;
+}
+.slideshow-featured-item.active {
+  opacity: 1;
+}
+.no-touch .slideshow-nav {
+  transition: opacity 0.2s ease;
+}
+.no-touch .slideshow-nav:hover {
+  opacity: 0.5 !important;
+}
+.slideshow-thumb-item {
+  transition: opacity 0.2s ease;
+}
+.slideshow-thumb-item.active {
+  opacity: 1;
+}
+.no-touch .slideshow-thumb-item:hover {
+  opacity: 1;
 }

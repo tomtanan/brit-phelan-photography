@@ -1,9 +1,5 @@
-let parallaxLock = false;
-
-export const setParallaxLock = (state) => {
-  parallaxLock = state; // Update the lock
+const global = {
+  parallax: false,
 };
 
-export const getParallaxLock = () => {
-  return parallaxLock; // Retrieve the current lock state
-};
+export default global;

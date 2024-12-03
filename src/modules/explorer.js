@@ -1,6 +1,6 @@
 import { $, $$ } from 'select-dom';
 import { on, addClass, removeClass } from 'utils/helpers';
-import { setParallaxLock } from 'utils/global';
+import global from 'utils/global';
 import { gsap } from 'gsap';
 
 let timeline = null;
@@ -17,7 +17,7 @@ const explorer = (el) => {
 
   const animate = (prevContent, nextContent) => {
     // Lock parallax during animations
-    setParallaxLock(true);
+    global.parallax = true;
 
     // Kill any ongoing timeline, but finish in-progress animations gracefully
     if (timeline) {
@@ -31,7 +31,7 @@ const explorer = (el) => {
 
     timeline = gsap.timeline({
       onComplete: () => {
-        setParallaxLock(false);
+        global.parallax = false;
         timeline = null;
         isAnimating = false;
       },

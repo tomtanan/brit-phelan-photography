@@ -1,6 +1,7 @@
 import { $, $$ } from 'select-dom';
 import { gsap } from 'gsap';
-import { on } from 'utils/helpers';
+import { on, addClass, removeClass } from 'utils/helpers';
+import emitter from 'utils/events';
 import throttle from 'lodash.throttle';
 
 const gallery = (el) => {
@@ -8,6 +9,8 @@ const gallery = (el) => {
     const items = $$('.js-gallery-item', el);
     const photos = $$('.js-gallery-item-photo', el);
     const grid = $('.js-gallery-list', el);
+    const modal = $('.js-gallery-modal', el);
+    const modalClose = $('.js-gallery-modal-close', el);
 
     // Initialize the grid position
     gsap.set(grid, { x: 0, y: 0 });
@@ -42,7 +45,7 @@ const gallery = (el) => {
 
         on(item, 'mouseenter', () => {
           gsap.killTweensOf(photos);
-          
+
           // Reset all photos' zIndex
           photos.forEach((p) => gsap.set(p, { zIndex: 2 }));
 
@@ -76,6 +79,16 @@ const gallery = (el) => {
               },
           });
         });
+
+        on(item, 'click', () => {
+          const index = items.indexOf(item);
+          emitter.emit('modal:open', { index });
+          addClass(modal, 'active');
+        })
+
+        on(modalClose, 'click', () => {
+          removeClass(modal, 'active');
+        })
     });
 };
 

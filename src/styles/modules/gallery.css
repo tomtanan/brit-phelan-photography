@@ -1,0 +1,14 @@
+.gallery-modal {
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.gallery-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.no-touch .gallery-modal-close {
+  transition: opacity 0.2s ease;
+}
+.no-touch .gallery-modal-close:hover {
+  opacity: 0.5;
+}
