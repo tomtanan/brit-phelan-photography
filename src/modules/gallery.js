@@ -30,7 +30,6 @@ const gallery = (el) => {
       const adjustedX = -x - gridRect.width / 2;
       const adjustedY = -y - gridRect.height / 2;
 
-      gsap.set(grid, { clearProps: 'transform' });
       gsap.to(grid, {
         x: adjustedX,
         y: adjustedY,
