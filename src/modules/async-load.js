@@ -1,11 +1,13 @@
 import { $, $$ } from 'select-dom';
-import { on } from 'utils/helpers';
+import { on, off } from 'utils/helpers';
 import { modulesMap } from 'scripts/init';
 import { gsap } from 'gsap';
 
 const asyncLoad = (el) => {
   const wrapper = '#main';
   const links = $$('[data-fetch-link]', el);
+
+  console.log(links)
 
   // const load = async (url, targetSelector, contentSelector) => {
   const load = async (url, target) => {
@@ -54,6 +56,8 @@ const asyncLoad = (el) => {
               ease: 'power3.out',
               duration: 0.5,
             });
+            
+            asyncLoad(el);
           },
         });
       } else {
@@ -64,13 +68,16 @@ const asyncLoad = (el) => {
     }
   };
 
+  const handleClick = (e, item) => {
+    e.preventDefault();
+    const url = item.getAttribute('href');
+    const target = item.getAttribute('data-fetch-target');
+    load(url, target);
+  }
+
   links.forEach((item) => {
-    on(item, 'click', (e) => {
-      e.preventDefault();
-      const url = item.getAttribute('href');
-      const target = item.getAttribute('data-fetch-target');
-      load(url, target);
-    });
+    off(item, 'click', (e) => handleClick(e, item));
+    on(item, 'click', (e) => handleClick(e, item));
   });
 };
 

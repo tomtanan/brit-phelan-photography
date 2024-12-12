@@ -31,12 +31,6 @@ const gallery = (el) => {
       const adjustedX = -x - gridRect.width / 2;
       const adjustedY = -y - gridRect.height / 2;
 
-      if (firstMove) {
-        gsap.set(grid, {
-          transform: 'translate(0, 0)',
-        });
-        firstMove = false;
-      }
       gsap.to(grid, {
         x: adjustedX,
         y: adjustedY,
