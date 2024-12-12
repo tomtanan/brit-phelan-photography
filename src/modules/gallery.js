@@ -11,6 +11,7 @@ const gallery = (el) => {
     const grid = $('.js-gallery-list', el);
     const modal = $('.js-gallery-modal', el);
     const modalClose = $('.js-gallery-modal-close', el);
+    let firstMove = true;
 
     // Handle grid movement with mouse
     const updateGridPosition = throttle((e) => {
@@ -30,6 +31,12 @@ const gallery = (el) => {
       const adjustedX = -x - gridRect.width / 2;
       const adjustedY = -y - gridRect.height / 2;
 
+      if (firstMove) {
+        gsap.set(grid, {
+          transform: 'translate(0, 0)',
+        });
+        firstMove = false;
+      }
       gsap.to(grid, {
         x: adjustedX,
         y: adjustedY,
