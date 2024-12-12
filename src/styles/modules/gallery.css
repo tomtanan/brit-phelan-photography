@@ -1,8 +1,7 @@
-.no-touch .gallery-header-link {
-  transition: opacity 0.2s ease;
-}
-.no-touch .gallery-header-link:hover {
-  opacity: 0.5;
+.photo-list {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .gallery-modal {
   transition: opacity 0.4s ease;
@@ -11,6 +10,12 @@
 .gallery-modal.active {
   opacity: 1;
   pointer-events: auto;
+}
+.no-touch .gallery-header-link {
+  transition: opacity 0.2s ease;
+}
+.no-touch .gallery-header-link:hover {
+  opacity: 0.5;
 }
 .no-touch .gallery-modal-close {
   transition: opacity 0.2s ease;
