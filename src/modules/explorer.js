@@ -15,6 +15,20 @@ const explorer = (el) => {
   const wheel = $('.js-explorer-wheel', el);
   const paths = $$('.js-wheel-path', wheel);
 
+  const onLoadAnimation = () => {
+    gsap.fromTo(tabs, {
+      x: -100,
+      opacity: 0,
+    }, {
+      x: 0,
+      opacity: 1,
+      duration: 0.5,
+      delay: 0.3,
+      stagger: 0.1, 
+      ease: 'power3.out',
+    });
+  }
+
   const animate = (prevContent, nextContent) => {
     // Lock parallax during animations
     global.parallax = true;
@@ -118,7 +132,7 @@ const explorer = (el) => {
   const initExplorer = () => {
     selectGallery(tabs[0], contents[0], true);
     addClass(next, 'active');
-
+    onLoadAnimation();
   };
 
   tabs.forEach((item) => {

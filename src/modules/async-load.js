@@ -7,8 +7,6 @@ const asyncLoad = (el) => {
   const wrapper = '#main';
   const links = $$('[data-fetch-link]', el);
 
-  console.log(links)
-
   // const load = async (url, targetSelector, contentSelector) => {
   const load = async (url, target) => {
     try {
