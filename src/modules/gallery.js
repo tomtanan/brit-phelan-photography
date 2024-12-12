@@ -12,31 +12,34 @@ const gallery = (el) => {
     const modal = $('.js-gallery-modal', el);
     const modalClose = $('.js-gallery-modal-close', el);
 
-    // Initialize the grid position
-    gsap.set(grid, { x: 0, y: 0 });
-
     // Handle grid movement with mouse
-    on(window, 'mousemove', throttle((e) => {
-        const containerRect = container.getBoundingClientRect();
-        const gridRect = grid.getBoundingClientRect();
+    const updateGridPosition = throttle((e) => {
+      const containerRect = container.getBoundingClientRect();
+      const gridRect = grid.getBoundingClientRect();
+    
+      const xPercent = (e.clientX - containerRect.left) / containerRect.width;
+      const yPercent = (e.clientY - containerRect.top) / containerRect.height;
+    
+      const maxX = Math.max(0, gridRect.width - containerRect.width);
+      const maxY = Math.max(0, gridRect.height - containerRect.height);
+    
+      const x = xPercent * maxX - maxX / 2;
+      const y = yPercent * maxY - maxY / 2;
+    
+      // Adjust Y to account for centering transform
+      const adjustedX = -x - gridRect.width / 2;
+      const adjustedY = -y - gridRect.height / 2;
+    
+      gsap.to(grid, {
+        x: adjustedX,
+        y: adjustedY,
+        ease: 'power3.out',
+        duration: 0.5,
+        overwrite: true,
+      });
+    }, 20);
 
-        const xPercent = (e.clientX - containerRect.left) / containerRect.width;
-        const yPercent = (e.clientY - containerRect.top) / containerRect.height;
-
-        const maxX = -(gridRect.width - containerRect.width) / 2;
-        const maxY = -(gridRect.height - containerRect.height) / 2;
-
-        const x = xPercent * 2 * maxX - maxX;
-        const y = yPercent * 2 * maxY - maxY;
-
-        gsap.to(grid, {
-            x: x,
-            y: y,
-            ease: 'power3.out',
-            duration: 0.5,
-            overwrite: true,
-        });
-    }, 20));
+    on(window, 'mousemove', updateGridPosition);
 
     // Handle item interactions
     items.forEach((item) => {

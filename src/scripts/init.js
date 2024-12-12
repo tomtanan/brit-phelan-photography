@@ -1,4 +1,4 @@
-import fetchContent from '../modules/fetch-content.js';
+import asyncLoad from '../modules/async-load.js';
 import contact from '../modules/contact.js';
 import explorer from '../modules/explorer.js';
 import imageFlow from '../modules/image-flow.js';
@@ -7,8 +7,8 @@ import gallery from '../modules/gallery.js';
 import slideshow from '../modules/slideshow.js';
 
 // Mapping of data-module values to imported modules
-const modulesMap = {
-  'fetch-content': fetchContent,
+export const modulesMap = {
+  'async-load': asyncLoad,
   'contact': contact,
   'explorer': explorer,
   'image-flow': imageFlow,
