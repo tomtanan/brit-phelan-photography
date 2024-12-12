@@ -35,7 +35,7 @@ const gallery = (el) => {
         y: adjustedY,
         ease: 'power3.out',
         duration: 0.5,
-        overwrite: true,
+        overwrite: 'all',
       });
     }, 20);
 
