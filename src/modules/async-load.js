@@ -24,7 +24,6 @@ const asyncLoad = (el) => {
       if (targetContent) {
 
         gsap.to(el, {
-          scale: 1.2,
           opacity: 0,
           ease: 'power3.out',
           duration: 0.5, 
@@ -46,10 +45,8 @@ const asyncLoad = (el) => {
             });
 
             gsap.fromTo(el, {
-              scale: 0.8,
               opacity: 0,
             }, {
-              scale: 1,
               opacity: 1,
               ease: 'power3.out',
               duration: 0.5,
