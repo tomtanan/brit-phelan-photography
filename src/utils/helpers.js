@@ -1,8 +1,4 @@
-/**
- * Checks if the device is a touch device.
- *
- * @returns {boolean} True if the device is a touch device, false otherwise.
- */
+// Checks if the device is a touch device.
 export const isTouchDevice = () => {
   return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 }

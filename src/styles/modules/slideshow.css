@@ -10,12 +10,12 @@
 .no-touch .slideshow-nav:hover {
   opacity: 0.5 !important;
 }
-.slideshow-thumb-item {
+.slideshow-thumb-link {
   transition: opacity 0.2s ease;
 }
-.slideshow-thumb-item.active {
+.slideshow-thumb-link.active {
   opacity: 1;
 }
-.no-touch .slideshow-thumb-item:hover {
+.no-touch .slideshow-thumb-link:hover {
   opacity: 1;
 }

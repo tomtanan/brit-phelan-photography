@@ -1,4 +1,4 @@
-import { $$ } from 'select-dom'; // Assuming $$ selects multiple elements like querySelectorAll
+import { $$ } from 'select-dom';
 import { gsap } from 'gsap';
 import { on, isTouchDevice } from 'utils/helpers';
 

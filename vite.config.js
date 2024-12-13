@@ -20,6 +20,7 @@ export default defineConfig({
   },
   build: {
     outDir: resolve(__dirname, 'dist'), // Ensure dist is outside src
+    clean: true, // Ensures the output directory is cleaned before building
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),

@@ -9,7 +9,7 @@ const slideshow = (el) => {
   const prev = $('.js-slideshow-nav-prev', el);
   const next = $('.js-slideshow-nav-next', el);
   const thumbsGroup = $('.js-slideshow-thumbs-group', el);
-  const thumbs = $$('.js-slideshow-thumb-item', el);
+  const thumbs = $$('.js-slideshow-thumb-link', el);
   let currIndex = 0;
 
   const resetStates = () => {
