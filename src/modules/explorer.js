@@ -7,7 +7,7 @@ let timeline = null;
 let isAnimating = false;
 
 const explorer = (el) => {
-  const wrapper = $('#main');
+  const background = $('#background');
   const tabs = $$('.js-explorer-tab', el);
   const contents = $$('.js-explorer-featured', el);
   const prev = $('.js-explorer-prev', el);
@@ -90,7 +90,7 @@ const explorer = (el) => {
     removeClass(contents, 'active');
     addClass(content, 'active');
 
-    wrapper.style.backgroundColor = color;
+    background.style.backgroundColor = color;
 
     const index = tabs.findIndex((tab) => tab.classList.contains('active'));
 
