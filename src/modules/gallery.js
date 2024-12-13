@@ -13,37 +13,42 @@ const gallery = (el) => {
   const modal = $('.js-gallery-modal', el);
   const modalClose = $('.js-gallery-modal-close', el);
 
-  // Load animation handler
-  const onLoadAnimation = () => {
-    gsap.set(grid, { x: '-50%', y: '-50%' });
-  
-    const tl = gsap.timeline({
-      defaults: { ease: 'power3.out' }, // Common easing for all animations
-    });
-  
-    // Animate items with stagger for sequential delays
-    tl.fromTo(items, { 
+  const animateItem = (item, index) => {
+    gsap.fromTo(item, {
       opacity: 0,
       scale: 0.5,
     }, {
       opacity: 1,
       scale: 1,
       duration: 0.5,
-      stagger: { each: 0.1, from: 'random' }, // Randomized stagger for dynamic effect
-    }, '-=0.3').then(() => {
-      items.forEach((item) => {
-        gsap.set(item, { clearProps: 'scale' });
-      });
+      delay: Math.random(),
+      ease: 'power3.out'
+    });
+  }
+  const onLoadAnimation = () => {
+    gsap.set(grid, { x: '-50%', y: '-50%' });
+
+    items.forEach((item, index) => {
+      const photo = $('.js-gallery-item-photo', item);
+
+      if (photo.complete) {
+        animateItem(item, index);
+      } else {
+        photo.onload = () => {
+          animateItem(item, index);
+        };
+      }
     });
   
     // Animate header children
-    tl.fromTo(header.children, { 
+    gsap.fromTo(header.children, { 
       y: 50, 
       opacity: 0 
     }, { 
       y: 0, 
       opacity: 1, 
-      duration: 0.5 
+      duration: 0.5,
+      ease: 'power3.out'
     });
   };
   
