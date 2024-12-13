@@ -1,3 +1,6 @@
+.explorer-wheel {
+  opacity: 0;
+}
 .explorer-wheel-text {
   padding-top: 2px;
 }

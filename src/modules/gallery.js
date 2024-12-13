@@ -12,34 +12,41 @@ const gallery = (el) => {
   const grid = $('.js-gallery-list', el);
   const modal = $('.js-gallery-modal', el);
   const modalClose = $('.js-gallery-modal-close', el);
-  let firstMove = true;
 
   // Load animation handler
   const onLoadAnimation = () => {
     gsap.set(grid, { x: '-50%', y: '-50%' });
-
-    gsap.fromTo(header.children, {
-      y: 50,
-      opacity: 0,
-    }, {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      delay: 0.3,
-      ease: 'power3.out',
+  
+    const tl = gsap.timeline({
+      defaults: { ease: 'power3.out' }, // Common easing for all animations
     });
-
-    items.forEach((item) => {
-      gsap.fromTo(item, { 
-        opacity: 0
-      }, {
-        opacity: 1,
-        duration: 1,
-        delay: Math.random() * 1,
-        ease: 'power2.out',
+  
+    // Animate items with stagger for sequential delays
+    tl.fromTo(items, { 
+      opacity: 0,
+      scale: 0.5,
+    }, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.5,
+      stagger: { each: 0.1, from: 'random' }, // Randomized stagger for dynamic effect
+    }, '-=0.3').then(() => {
+      items.forEach((item) => {
+        gsap.set(item, { clearProps: 'scale' });
       });
     });
+  
+    // Animate header children
+    tl.fromTo(header.children, { 
+      y: 50, 
+      opacity: 0 
+    }, { 
+      y: 0, 
+      opacity: 1, 
+      duration: 0.5 
+    });
   };
+  
 
   // Grid movement handler
   const onMouseMove = throttle((e) => {
@@ -70,17 +77,12 @@ const gallery = (el) => {
   }, 20);
 
   // Item mouse enter handler
-  const onItemMouseEnter = (item, overlay, photo) => () => {
+  const onItemMouseEnter = (photo) => () => {
     gsap.killTweensOf(photos);
 
     // Reset all photos' zIndex
-    photos.forEach((p) => gsap.set(p, { zIndex: 2 }));
+    photos.forEach((item) => gsap.set(item, { zIndex: 2 }));
 
-    gsap.to(overlay, { 
-      opacity: 0.8, 
-      ease: 'power3.out', 
-      duration: 0.5, 
-    });
     gsap.to(photo, { 
       scale: 1.1, 
       zIndex: 4, 
@@ -90,17 +92,14 @@ const gallery = (el) => {
   };
 
   // Item mouse leave handler
-  const onItemMouseLeave = (overlay, photo) => () => {
-    gsap.to(overlay, { 
-      opacity: 0, 
-      ease: 'power3.out', 
-      duration: 0.5, 
-    overwrite: 'auto',
-    });
+  const onItemMouseLeave = (photo) => () => {
+    gsap.killTweensOf(photos);
+
     gsap.to(photo, {
       scale: 1,
       ease: 'power3.out', 
       duration: 0.5, 
+      overwrite: 'auto',
       onComplete: () => {
         gsap.set(photo, { zIndex: 2 });
       },
@@ -125,11 +124,10 @@ const gallery = (el) => {
     on(window, 'mousemove', onMouseMove);
 
     items.forEach((item) => {
-      const overlay = $('.js-gallery-item-overlay', item);
       const photo = $('.js-gallery-item-photo', item);
 
-      on(item, 'mouseenter', onItemMouseEnter(item, overlay, photo));
-      on(item, 'mouseleave', onItemMouseLeave(overlay, photo));
+      on(item, 'mouseenter', onItemMouseEnter(photo));
+      on(item, 'mouseleave', onItemMouseLeave(photo));
       on(item, 'click', onItemClick(item));
     });
 

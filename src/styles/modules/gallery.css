@@ -1,3 +1,6 @@
+.gallery-header * {
+  opacity: 0;
+}
 .gallery-modal {
   transition: opacity 0.4s ease;
   pointer-events: none;
