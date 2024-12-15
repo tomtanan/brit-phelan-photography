@@ -1,0 +1,6 @@
+.no-touch .logo {
+  transition: opacity 0.2s ease;
+}
+.no-touch .logo:hover {
+  opacity: 0.2;
+}

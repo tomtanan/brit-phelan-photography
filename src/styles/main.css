@@ -1,5 +1,6 @@
 @import 'libs/animations';
 @import 'libs/global';
+@import 'styles/modules/nav';
 @import 'styles/modules/contact';
 @import 'styles/modules/explorer';
 @import 'styles/modules/wheel';

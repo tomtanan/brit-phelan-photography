@@ -7,9 +7,10 @@ let timeline = null;
 let isAnimating = false;
 
 const explorer = (el) => {
-  const background = $('#background');
+  const main = $('#main');
   const tabs = $$('.js-explorer-tab', el);
   const contents = $$('.js-explorer-featured', el);
+  const images = $$('.js-explorer-image', el);
   const prev = $('.js-explorer-prev', el);
   const next = $('.js-explorer-next', el);
   const wheel = $('.js-explorer-wheel', el);
@@ -90,7 +91,7 @@ const explorer = (el) => {
     removeClass(contents, 'active');
     addClass(content, 'active');
 
-    background.style.backgroundColor = color;
+    main.style.backgroundColor = color;
 
     const index = tabs.findIndex((tab) => tab.classList.contains('active'));
 
@@ -129,34 +130,53 @@ const explorer = (el) => {
     selectGallery(tabs[newIndex], contents[newIndex]);
   }
 
+  const updateWheelColors = (color) =>{
+    const text = wheel.querySelectorAll('.js-wheel-text', wheel);
+    
+    text.forEach((item) => {
+      item.style.fill = color;
+    });
+    wheel.style.color = color;
+  }
+
   const initExplorer = () => {
     selectGallery(tabs[0], contents[0], true);
     addClass(next, 'active');
     onLoadAnimation();
-  };
 
-  tabs.forEach((item) => {
-    on(item, 'click', () => {
-      const slug = item.getAttribute('data-content');
-      const content = $(`.js-explorer-featured[data-tab="${slug}"]`, el);
-
-      if (content.classList.contains('active') || isAnimating) return;
-
-      selectGallery(item, content);
+    tabs.forEach((item) => {
+      on(item, 'click', () => {
+        const slug = item.getAttribute('data-content');
+        const content = $(`.js-explorer-featured[data-tab="${slug}"]`, el);
+  
+        if (content.classList.contains('active') || isAnimating) return;
+  
+        selectGallery(item, content);
+      });
     });
-  });
+  
+    on(prev, 'click', () => {
+      if (!prev.classList.contains('active')) return;
+      
+      navigateGallery(-1);
+    });
+  
+    on(next, 'click', () => {
+      if (!next.classList.contains('active')) return;
+  
+      navigateGallery(1);
+    });
 
-  on(prev, 'click', () => {
-    if (!prev.classList.contains('active')) return;
-    
-    navigateGallery(-1);
-  });
 
-  on(next, 'click', () => {
-    if (!next.classList.contains('active')) return;
-
-    navigateGallery(1);
-  });
+    images.forEach((item) => {
+      on(item, 'mouseenter', () => {
+        updateWheelColors('#fff')
+      });
+      on(item, 'mouseleave', () => {
+        updateWheelColors('#0c0c0c')
+      });
+    });
+  };
 
   initExplorer();
 };

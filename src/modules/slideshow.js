@@ -99,6 +99,10 @@ const slideshow = (el) => {
         ease: 'power2.out',
       }, '<');
   });
+
+  on(window, 'resize', () => {
+    moveThumbs(currIndex);
+  });
 };
 
 export default slideshow;

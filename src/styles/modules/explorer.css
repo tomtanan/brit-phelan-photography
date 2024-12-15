@@ -21,7 +21,7 @@
   transition: padding 0.2s ease;
 }
 .category-tab::before {
-  background-color: var(--white);
+  background-color: var(--black);
   content: '';
   display: block;
   height: 1px;

@@ -13,7 +13,7 @@
   transition: opacity 0.2s ease;
 }
 .no-touch .gallery-header-link:hover {
-  opacity: 0.5;
+  opacity: 0.5 !important;
 }
 .no-touch .gallery-modal-close {
   transition: opacity 0.2s ease;
