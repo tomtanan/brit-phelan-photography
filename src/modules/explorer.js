@@ -1,5 +1,5 @@
 import { $, $$ } from 'select-dom';
-import { on, addClass, removeClass } from 'utils/helpers';
+import { on, addClass, removeClass, isTouchDevice } from 'utils/helpers';
 import global from 'utils/global';
 import { gsap } from 'gsap';
 
@@ -132,7 +132,7 @@ const explorer = (el) => {
 
   const updateWheelColors = (color) =>{
     const text = wheel.querySelectorAll('.js-wheel-text', wheel);
-    
+
     text.forEach((item) => {
       item.style.fill = color;
     });

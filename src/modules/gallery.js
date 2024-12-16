@@ -1,6 +1,6 @@
 import { $, $$ } from 'select-dom';
 import { gsap } from 'gsap';
-import { on, addClass, removeClass } from 'utils/helpers';
+import { on, addClass, removeClass, isTouchDevice } from 'utils/helpers';
 import emitter from 'utils/events';
 import throttle from 'lodash.throttle';
 
@@ -126,7 +126,35 @@ const gallery = (el) => {
   // Initialization function
   const initGallery = () => {
     // Add event listeners
-    on(window, 'mousemove', onMouseMove);
+    if (isTouchDevice()) {
+      const sensitivity = 2;
+      let startX = 0, startY = 0;
+
+      container.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+      });
+      
+      container.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        const deltaX = (touch.clientX - startX) * sensitivity;
+        const deltaY = (touch.clientY - startY) * sensitivity;
+      
+        gsap.to(grid, {
+          x: `+=${deltaX}`,
+          y: `+=${deltaY}`,
+          ease: 'power3.out',
+          duration: 0.3,
+          overwrite: 'auto',
+        });
+      
+        startX = touch.clientX;
+        startY = touch.clientY;
+      });
+    } else {
+      on(window, 'mousemove', onMouseMove);
+    }
 
     items.forEach((item) => {
       const photo = $('.js-gallery-item-photo', item);

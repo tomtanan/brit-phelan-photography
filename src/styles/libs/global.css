@@ -4,3 +4,8 @@
 body {
   line-height: 1;
 }
+@supports (-webkit-touch-callout: none) {
+  .main {
+    height: 100dvh;
+  }
+}
