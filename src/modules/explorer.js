@@ -32,7 +32,7 @@ const explorer = (el) => {
 
   const animate = (prevContent, nextContent) => {
     // Lock parallax during animations
-    global.parallax = true;
+    global.parallax = (isTouchDevice()) ? false : true;
 
     // Kill any ongoing timeline, but finish in-progress animations gracefully
     if (timeline) {
@@ -54,11 +54,13 @@ const explorer = (el) => {
 
     prevItems.forEach((item) => {
       const speed = parseFloat(item.getAttribute('data-speed')) || 1;
+      const direction = (isTouchDevice()) ? '0vw' : '-100vw';
+
       timeline.fromTo(item, {
         x: '0vw',
         opacity: 1
       }, {
-        x: '-100vw',
+        x: direction,
         opacity: 0,
         duration: speed,
         ease: 'power2.in',
@@ -67,15 +69,18 @@ const explorer = (el) => {
 
     nextItems.forEach((item) => {
       const speed = parseFloat(item.getAttribute('data-speed')) || 1;
+      const direction = (isTouchDevice()) ? '0vw' : '100vw';
+      const delay = (isTouchDevice()) ? 0 : 0.7;
+
       timeline.fromTo(item, { 
-        x: '100vw',
+        x: direction,
         opacity: 0 
       }, {
         x: '0vw',
         opacity: 1,
         duration: speed,
         ease: 'power2.out',
-      }, 0.7);
+      }, delay);
     });
   };
 
@@ -167,15 +172,16 @@ const explorer = (el) => {
       navigateGallery(1);
     });
 
-
-    images.forEach((item) => {
-      on(item, 'mouseenter', () => {
-        updateWheelColors('#fff')
+    if (!isTouchDevice()) {
+      images.forEach((item) => {
+        on(item, 'mouseenter', () => {
+          updateWheelColors('#fff')
+        });
+        on(item, 'mouseleave', () => {
+          updateWheelColors('#0c0c0c')
+        });
       });
-      on(item, 'mouseleave', () => {
-        updateWheelColors('#0c0c0c')
-      });
-    });
+    }
   };
 
   initExplorer();

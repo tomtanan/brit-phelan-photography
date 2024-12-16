@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { on, isTouchDevice } from 'utils/helpers';
 
 const explorerWheel = (el) => {
-  const sections = $$('.js-explorer-featured'); // Select all sections
+  const blocks = $$('.js-explorer-block'); // Select all blocks
 
   if (isTouchDevice()) {
     // Set default position for touch devices
@@ -44,11 +44,11 @@ const explorerWheel = (el) => {
     gsap.to(el, { opacity: 0, duration: 0.3, ease: 'power1.inOut' });
   };
 
-  // Attach event listeners for each section
-  sections.forEach((section) => {
-    on(section, 'mousemove', onMouseMove);
-    on(section, 'mouseenter', onMouseEnter);
-    on(section, 'mouseleave', onMouseLeave);
+  // Attach event listeners for each block
+  blocks.forEach((item) => {
+    on(item, 'mousemove', onMouseMove);
+    on(item, 'mouseenter', onMouseEnter);
+    on(item, 'mouseleave', onMouseLeave);
   });
 };
 

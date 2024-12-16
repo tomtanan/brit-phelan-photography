@@ -9,7 +9,7 @@
     <title>Brit Phelan Photography</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link href="https://cdn.prod.website-files.com/673d0d29c4146cc69a8002b9/css/brit-phelan-photography.webflow.a8451ba19.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.prod.website-files.com/673d0d29c4146cc69a8002b9/css/brit-phelan-photography.webflow.37e2e3339.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
       !(function (o, c) {
         var n = c.documentElement,
@@ -33,6 +33,17 @@
       }
       body {
         line-height: 1;
+      }
+      @supports (-webkit-touch-callout: none) {
+        .main {
+          height: 100dvh;
+        }
+      }
+      .no-touch .logo {
+        transition: opacity 0.2s ease;
+      }
+      .no-touch .logo:hover {
+        opacity: 0.2;
       }
       .contact {
         display: none;
@@ -60,7 +71,7 @@
         transition: padding 0.2s ease;
       }
       .category-tab:before {
-        background-color: var(--white);
+        background-color: var(--black);
         content: '';
         display: block;
         height: 1px;
@@ -172,6 +183,7 @@
         }
       }
       .explorer-wheel {
+        transition: color 0.2s ease;
         opacity: 0;
       }
       .explorer-wheel-text {
@@ -185,12 +197,13 @@
         width: 100%;
       }
       .wheel-text {
-        fill: var(--white);
+        fill: var(--black);
         font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
         font-size: 8px;
         font-weight: 500;
         letter-spacing: 1px;
         text-transform: uppercase;
+        transition: fill 0.2s ease;
       }
       .gallery-header * {
         opacity: 0;
@@ -207,7 +220,7 @@
         transition: opacity 0.2s ease;
       }
       .no-touch .gallery-header-link:hover {
-        opacity: 0.5;
+        opacity: 0.5 !important;
       }
       .no-touch .gallery-modal-close {
         transition: opacity 0.2s ease;
@@ -281,29 +294,29 @@
       </div>
       <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
     </div>
-    <div id="background" class="background" style="background-color: white"></div>
-    <div id="main" data-module="async-load" class="main">
+    <div id="background" class="background"></div>
+    <div id="main" data-module="async-load" class="main" style="background-color: white">
       <section data-module="explorer" class="explorer">
-        <div data-module="explorer-wheel" class="explorer-wheel js-explorer-wheel" style="translate: none; rotate: none; scale: none; transform: translate(502px, 94px); opacity: 1">
+        <div data-module="explorer-wheel" class="explorer-wheel js-explorer-wheel" style="translate: none; rotate: none; scale: none; transform: translate(514px, 603px); opacity: 0">
           <div class="wheel-spin w-embed">
             <svg class="wheel-circle" viewBox="0 0 130 130">
               <defs>
                 <path id="circle" d="M115 65c0 27.6-22.4 50-50 50S15 92.6 15 65s22.4-50 50-50 50 22.4 50 50Z"></path>
               </defs>
 
-              <text class="wheel-text" text-anchor="start" fill="#0c0c0c">
+              <text class="wheel-text js-wheel-text" text-anchor="start" fill="#0c0c0c">
                 <textPath class="wheel-text-path js-wheel-path" href="#circle" startOffset="0%">ADVENTURE</textPath>
               </text>
-              <text class="wheel-text" text-anchor="start" fill="#0c0c0c">
+              <text class="wheel-text js-wheel-text" text-anchor="start" fill="#0c0c0c">
                 <textPath class="wheel-text-path js-wheel-path" href="#circle" startOffset="20%">ADVENTURE</textPath>
               </text>
-              <text class="wheel-text" text-anchor="start" fill="#0c0c0c">
+              <text class="wheel-text js-wheel-text" text-anchor="start" fill="#0c0c0c">
                 <textPath class="wheel-text-path js-wheel-path" href="#circle" startOffset="40%">ADVENTURE</textPath>
               </text>
-              <text class="wheel-text" text-anchor="start" fill="#0c0c0c">
+              <text class="wheel-text js-wheel-text" text-anchor="start" fill="#0c0c0c">
                 <textPath class="wheel-text-path js-wheel-path" href="#circle" startOffset="60%">ADVENTURE</textPath>
               </text>
-              <text class="wheel-text" text-anchor="start" fill="#0c0c0c">
+              <text class="wheel-text js-wheel-text" text-anchor="start" fill="#0c0c0c">
                 <textPath class="wheel-text-path js-wheel-path" href="#circle" startOffset="80%">ADVENTURE</textPath>
               </text>
             </svg>
@@ -314,8 +327,8 @@
           <div role="list" class="featured-list w-dyn-items">
             <div data-tab="adventure" role="listitem" class="featured-content js-explorer-featured w-dyn-item active">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="1" data-module="image-flow" href="/photos" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px) scale(0.95, 0.95)">
+              ><a data-fetch-link="" data-layout="1" data-module="image-flow" href="/photos/adventure" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c0037d8f41f496c4ae132_adventure-7.webp"
                     loading="lazy"
@@ -330,10 +343,9 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c0037d8f41f496c4ae132_adventure-7.webp        2250w
                     "
                     class="featured-image js-explorer-image"
-                    style="translate: none; rotate: none; scale: none; transform: scale(1.05, 1.05)"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c003773d737089b255bdc_adventure-9.webp"
                     loading="lazy"
@@ -348,7 +360,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c0037a8c0ce445462c039_adventure-12.webp"
                     loading="lazy"
@@ -363,13 +375,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c0037a8c0ce445462c039_adventure-12.webp        2250w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="editorial" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="4" data-module="image-flow" href="/photos/editorial" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="4" data-module="image-flow" href="/photos/editorial" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c02ed87bb7cf88a5cbc6f_editorial-3.webp"
                     loading="lazy"
@@ -386,7 +400,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c3730a2f0b7967d1c18d7_Puma-Pride-Sportswear-Photography.jpg"
                     loading="lazy"
@@ -401,7 +415,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c37322679e85345ab8c03_State-Farm-Jake-Editorial-Photography.jpg"
                     loading="lazy"
@@ -414,13 +428,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c37322679e85345ab8c03_State-Farm-Jake-Editorial-Photography.jpg        1500w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="family" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="4" data-module="image-flow" href="/photos" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="4" data-module="image-flow" href="/photos/family" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c34b2bbb8ca6b2a82fa7c_Best-Dad-Award-Kids-Burying-Dad-in-Sand-Photographer-Brit-Phelan.jpg"
                     loading="lazy"
@@ -437,7 +453,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c019ebc0eeda389f5be7e_family-7.webp"
                     loading="lazy"
@@ -452,7 +468,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbd371a3794e386add77c_Mens-Warehouse-Holiday-Campaign-Candid-Photography-Brit-Phelan.jpg"
                     loading="lazy"
@@ -467,13 +483,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbd371a3794e386add77c_Mens-Warehouse-Holiday-Campaign-Candid-Photography-Brit-Phelan.jpg        2250w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="fashion" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="4" data-module="image-flow" href="/photos" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="4" data-module="image-flow" href="/photos/fashion" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675da09e1522781a80cf440d_Veronica-Beard-Commercial-Girls-Dancing-Lifestyle-Photography-Brit-Phelan.jpg"
                     loading="lazy"
@@ -490,7 +508,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c3674531e04af60f2bab7_Friends-at-Holiday-Party-for-Mens-Warehouse-Holiday-Ad-Campaign-Photographer-Brit-Phelan-3.jpg"
                     loading="lazy"
@@ -505,7 +523,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675da0fcf4a617117b56dbb5_Woman-in-Zennis-Red-Sunglasses-Lifestyle-Ad-Campaign-Photographer-Brit-Phelan.jpg"
                     loading="lazy"
@@ -518,13 +536,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675da0fcf4a617117b56dbb5_Woman-in-Zennis-Red-Sunglasses-Lifestyle-Ad-Campaign-Photographer-Brit-Phelan.jpg        1500w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="friends" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="3" data-module="image-flow" href="/photos" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="3" data-module="image-flow" href="/photos/friends" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c37b33e50ef6c92a0df92_Commercial-Photography-Coca-Cola-Ad.jpg"
                     loading="lazy"
@@ -541,7 +561,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c00fe35caba08033f28c3_friends-12.webp"
                     loading="lazy"
@@ -556,7 +576,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c3772d22e4f5c35206778_White-Claw-Lifestyle-Beach-Ad-Campaign-Photographer-Brit-Phelan-2.jpg"
                     loading="lazy"
@@ -569,13 +589,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c3772d22e4f5c35206778_White-Claw-Lifestyle-Beach-Ad-Campaign-Photographer-Brit-Phelan-2.jpg        1500w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="girlhood" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="1" data-module="image-flow" href="/photos" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="1" data-module="image-flow" href="/photos/girlhood" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675da2453511b604a50bb657_Body-Inclusivity-Diversity-Swimsuit-Women-Friends-Film-Ocean-Tropical-Brit-Phelan-Photography-2.jpg"
                     loading="lazy"
@@ -592,7 +614,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675bfce1de913c013c6c19b3_Land-Rover-Girls-Driving-New-York-City-Photography-Brit-Phelan.webp"
                     loading="lazy"
@@ -607,7 +629,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675da083804f900d751dd167_Apple-iPhone-Selfie-Candid-Authentic-Photo-Brit-Phelan.jpg"
                     loading="lazy"
@@ -622,13 +644,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675da083804f900d751dd167_Apple-iPhone-Selfie-Candid-Authentic-Photo-Brit-Phelan.jpg        2250w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="intimate" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="2" data-module="image-flow" href="/photos" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="2" data-module="image-flow" href="/photos/intimate" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675bfef3d86f0442db47d31a_intimate-2.webp"
                     loading="lazy"
@@ -645,7 +669,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675bfef3bd1b8a5d45a3a535_intimate-8.webp"
                     loading="lazy"
@@ -660,7 +684,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675da2d34314f55d5ec924c4_Summer-Fashion-Lifestyle-Adidas-Street-Style-Urban-Outfitters-Campaign-Brit-Phelan-Photography.jpg"
                     loading="lazy"
@@ -673,13 +697,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675da2d34314f55d5ec924c4_Summer-Fashion-Lifestyle-Adidas-Street-Style-Urban-Outfitters-Campaign-Brit-Phelan-Photography.jpg        1500w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="portraits" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="1" data-module="image-flow" href="/photos" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="1" data-module="image-flow" href="/photos/portraits" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbb9392d7baafc8c9091a_Jake-State-Farm-Playing-Video-Games-Photo-Brit-Phelan.jpg"
                     loading="lazy"
@@ -696,7 +722,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c388b3b24eab09f0c0470_Puma-Pride-Portrait-Commercial-Photography.jpg"
                     loading="lazy"
@@ -711,7 +737,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c015a5f8aea4cf0b466ee_portraits-1.webp"
                     loading="lazy"
@@ -724,13 +750,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675c015a5f8aea4cf0b466ee_portraits-1.webp        1500w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="real-life" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="3" data-module="image-flow" href="/photos" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="3" data-module="image-flow" href="/photos/real-life" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675bff613c9a54297865aecd_real-2.webp"
                     loading="lazy"
@@ -747,7 +775,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbc7c73b786372c3684f2_French-Beach-Landscape-Photography-Brit-Phelan-Web%202.jpg"
                     loading="lazy"
@@ -762,7 +790,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbcf187a91eb992bdb187_Lifestyle-La-Fashion-Photo-Brit-Phelan.jpg"
                     loading="lazy"
@@ -777,13 +805,15 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbcf187a91eb992bdb187_Lifestyle-La-Fashion-Photo-Brit-Phelan.jpg        2250w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
             <div data-tab="sports" role="listitem" class="featured-content js-explorer-featured w-dyn-item">
               <span style="background-color: white" class="featured-color js-explorer-color"></span
-              ><a data-fetch-link="" data-layout="2" data-module="image-flow" href="/photos/sports" class="featured-wrapper w-inline-block"
-                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-5.3299px, -0.663px)">
+              ><a data-fetch-link="" data-layout="2" data-module="image-flow" href="/photos/sports" class="featured-wrapper js-explorer-block w-inline-block"
+                ><div data-speed="0.5" data-intensity="1" class="featured-item item-1 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-4.5232px, 4.9442px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbaed7e9f5b6aef16c489_Muay-Thai-Fighter-Boxing-Photo-Brit-Phelan.jpg"
                     loading="lazy"
@@ -800,7 +830,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-10.6597px, -1.326px)">
+                <div data-speed="1" data-intensity="2" class="featured-item item-2 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-9.0464px, 9.8885px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbb445c81f5cd02759d1d_Dalilah-Muhammad-Nike-Runner-Commerical-Photography-Sports.jpg"
                     loading="lazy"
@@ -815,7 +845,7 @@
                     class="featured-image js-explorer-image"
                   />
                 </div>
-                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-15.9896px, -1.989px)">
+                <div data-speed="0.8" data-intensity="3" class="featured-item item-3 js-explorer-item" style="translate: none; rotate: none; scale: none; transform: translate(-13.5695px, 14.8327px)">
                   <img
                     src="https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbaf349473edee8995903_Young-Basketball-Player-Shooting-Hoops-Photo-Brit-Phelan.jpg"
                     loading="lazy"
@@ -828,8 +858,10 @@
                       https://cdn.prod.website-files.com/673de993cf9fcfb38b493ad6/675cbaf349473edee8995903_Young-Basketball-Player-Shooting-Hoops-Photo-Brit-Phelan.jpg        1500w
                     "
                     class="featured-image js-explorer-image"
-                  /></div
-              ></a>
+                  />
+                </div>
+                <div class="featured-link">View Gallery</div></a
+              >
             </div>
           </div>
         </div>

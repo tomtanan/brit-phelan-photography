@@ -7,7 +7,7 @@ const asyncLoad = (el) => {
   const wrapper = '#main';
   const links = $$('[data-fetch-link]', document);
   const cachedPages = new Map(); // Cache for preloaded pages
-
+  
   const preloadContent = (url) => {
     if (!cachedPages.has(url)) {
       fetch(url)
