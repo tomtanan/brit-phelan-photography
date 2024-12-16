@@ -4,7 +4,7 @@
   "main": "main.js",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build"
+    "build": "vite build --emptyOutDir"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.5",
+    "intersection-observer": "^0.12.2",
     "lodash.throttle": "^4.1.1",
     "mitt": "^3.0.1",
     "select-dom": "^9.2.0"
