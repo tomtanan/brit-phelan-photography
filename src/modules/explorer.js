@@ -28,13 +28,11 @@ const explorer = (el) => {
       stagger: 0.1, 
       ease: 'power3.out',
     });
-  }
+  };
 
   const animate = (prevContent, nextContent) => {
-    // Lock parallax during animations
-    global.parallax = (isTouchDevice()) ? false : true;
+    global.parallax = isTouchDevice() ? false : true;
 
-    // Kill any ongoing timeline, but finish in-progress animations gracefully
     if (timeline) {
       timeline.progress(1);
     }
@@ -54,11 +52,11 @@ const explorer = (el) => {
 
     prevItems.forEach((item) => {
       const speed = parseFloat(item.getAttribute('data-speed')) || 1;
-      const direction = (isTouchDevice()) ? '0vw' : '-100vw';
+      const direction = isTouchDevice() ? '0vw' : '-100vw';
 
       timeline.fromTo(item, {
         x: '0vw',
-        opacity: 1
+        opacity: 1,
       }, {
         x: direction,
         opacity: 0,
@@ -69,12 +67,12 @@ const explorer = (el) => {
 
     nextItems.forEach((item) => {
       const speed = parseFloat(item.getAttribute('data-speed')) || 1;
-      const direction = (isTouchDevice()) ? '0vw' : '100vw';
-      const delay = (isTouchDevice()) ? 0 : 0.7;
+      const direction = isTouchDevice() ? '0vw' : '100vw';
+      const delay = isTouchDevice() ? 0 : 0.7;
 
-      timeline.fromTo(item, { 
+      timeline.fromTo(item, {
         x: direction,
-        opacity: 0 
+        opacity: 0,
       }, {
         x: '0vw',
         opacity: 1,
@@ -92,7 +90,7 @@ const explorer = (el) => {
 
     removeClass(tabs, 'active');
     addClass(tab, 'active');
-    
+
     removeClass(contents, 'active');
     addClass(content, 'active');
 
@@ -103,7 +101,7 @@ const explorer = (el) => {
     updateGalleryNav(index);
     updateWheel(tab);
   };
-  
+
   const updateGalleryNav = (index) => {
     if (index === 0) {
       removeClass(prev, 'active');
@@ -116,7 +114,7 @@ const explorer = (el) => {
     } else if (!next.classList.contains('active')) {
       addClass(next, 'active');
     }
-  }
+  };
 
   const updateWheel = (tab) => {
     const word = tab.getAttribute('data-content').toUpperCase();
@@ -124,7 +122,7 @@ const explorer = (el) => {
     paths.forEach((item) => {
       item.textContent = word;
     });
-  }
+  };
 
   const navigateGallery = (step = 1) => {
     const index = tabs.findIndex((tab) => tab.classList.contains('active'));
@@ -133,16 +131,26 @@ const explorer = (el) => {
     if (newIndex < 0 || newIndex >= tabs.length || isAnimating) return;
 
     selectGallery(tabs[newIndex], contents[newIndex]);
-  }
+  };
 
-  const updateWheelColors = (color) =>{
+  const updateWheelColors = (color) => {
     const text = wheel.querySelectorAll('.js-wheel-text', wheel);
 
     text.forEach((item) => {
       item.style.fill = color;
     });
     wheel.style.color = color;
-  }
+  };
+
+  const handleKeydown = (event) => {
+    if (isAnimating) return;
+
+    if (event.key === 'ArrowLeft') {
+      navigateGallery(-1);
+    } else if (event.key === 'ArrowRight') {
+      navigateGallery(1);
+    }
+  };
 
   const initExplorer = () => {
     selectGallery(tabs[0], contents[0], true);
@@ -153,34 +161,36 @@ const explorer = (el) => {
       on(item, 'click', () => {
         const slug = item.getAttribute('data-content');
         const content = $(`.js-explorer-featured[data-tab="${slug}"]`, el);
-  
+
         if (content.classList.contains('active') || isAnimating) return;
-  
+
         selectGallery(item, content);
       });
     });
-  
+
     on(prev, 'click', () => {
       if (!prev.classList.contains('active')) return;
-      
+
       navigateGallery(-1);
     });
-  
+
     on(next, 'click', () => {
       if (!next.classList.contains('active')) return;
-  
-      navigateGallery(1);
+
+      navigateGallery(1); s
     });
 
     if (!isTouchDevice()) {
       images.forEach((item) => {
         on(item, 'mouseenter', () => {
-          updateWheelColors('#fff')
+          updateWheelColors('#fff');
         });
         on(item, 'mouseleave', () => {
-          updateWheelColors('#0c0c0c')
+          updateWheelColors('#0c0c0c');
         });
       });
+
+      on(document, 'keydown', handleKeydown);
     }
   };
 
